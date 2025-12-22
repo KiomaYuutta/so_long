@@ -90,18 +90,15 @@ void	ft_flood_fill(char **map, int p_y, int p_x, t_map_man *map_man)
 {
 	if (map[p_y][p_x] == 'C')
 		(map_man->n_collectibles_access)++;
-	if (map[p_y][p_x] != 'E')
-	{
-		map[p_y][p_x] = '1';
-		if (map[p_y + 1][p_x] != '1')
-			ft_flood_fill(map, p_y + 1, p_x, map_man);
-		if (map[p_y][p_x + 1] != '1')
-			ft_flood_fill(map, p_y, p_x + 1, map_man);
-		if (map[p_y - 1][p_x] != '1')
-			ft_flood_fill(map, p_y - 1, p_x, map_man);
-		if (map[p_y][p_x - 1] != '1')
-			ft_flood_fill(map, p_y, p_x - 1, map_man);
-	}
 	if (map[p_y][p_x] == 'E')
 		map_man->exit_access = 1;
+	map[p_y][p_x] = '1';
+	if (map[p_y + 1][p_x] != '1')
+		ft_flood_fill(map, p_y + 1, p_x, map_man);
+	if (map[p_y][p_x + 1] != '1')
+		ft_flood_fill(map, p_y, p_x + 1, map_man);
+	if (map[p_y - 1][p_x] != '1')
+		ft_flood_fill(map, p_y - 1, p_x, map_man);
+	if (map[p_y][p_x - 1] != '1')
+		ft_flood_fill(map, p_y, p_x - 1, map_man);
 }

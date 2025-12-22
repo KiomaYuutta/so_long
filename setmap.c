@@ -25,7 +25,7 @@ int	ft_countlines(int *map_fd, size_t *x_size, char *map_name)
 		close(*map_fd);
 		return (0);
 	}
-	*x_size = ft_strlen(str) - 1;
+	*x_size = ft_strlen(str) - 2;
 	while (str != NULL)
 	{
 		free(str);

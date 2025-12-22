@@ -6,7 +6,7 @@
 /*   By: dide-alm <dide-alm@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:26:40 by dide-alm          #+#    #+#             */
-/*   Updated: 2025/12/18 11:17:49 by dide-alm         ###   ########.fr       */
+/*   Updated: 2025/12/22 12:38:27 by dide-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,19 @@ int	ft_check_mapexist(char *name, t_map_man *map_man)
 int	ft_check_mapshape(t_map_man *map_man)
 {
 	size_t  cnt;
-	size_t	size;
 
         cnt = 0;
         if (ft_setmap_check(map_man) == 0)
                 return (0);
         while (cnt < map_man->y_size - 1)
         {
-		size = ft_strlen(map_man->map[cnt]) - 1;
-                if ((ft_strlen(map_man->map[cnt]) - 1) != map_man->x_size)
+                if ((ft_strlen(map_man->map[cnt]) - 2) != map_man->x_size)
                 {
                         ft_printf("Error\nMap shape is not a rectangle\n");
                         return (0);
                 }
                 cnt++;
         }
-	size = ft_strlen(map_man->map[cnt]) - 1;
         if (ft_strlen(map_man->map[cnt]) != map_man->x_size)
         {
                 ft_printf("Error\nMap shape is not a rectangle\n");
